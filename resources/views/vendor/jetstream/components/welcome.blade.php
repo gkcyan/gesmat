@@ -4,7 +4,7 @@
     </div>
 
     <div class="mt-8 text-2xl">
-        Bienvenue sur {{ config('app.name', 'Laravel') }} !
+        Bienvenue sur {{ config('app.name') }} !
     </div>
 
     <div class="mt-6 text-gray-500">
