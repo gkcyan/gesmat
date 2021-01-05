@@ -20,32 +20,38 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-blue-100">
-            @livewire('navigation-dropdown')
+            <x-jet-nav-bar/>
+            <x-jet-sous-nav-bar/>
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
-                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="px-4 py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="py-6">
+                    <div class="py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                        <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+                            <x-jet-nav-bar-page/>
+                            <x-jet-page-title/>
+                             {{ $slot }}
+                        </div>
+                    </div>
+                </div>
             </main>
 
             <!-- Page footer -->
             
-            <footer class="px-4 py-1 font-sans bg-white">
-                
-               @yield('footer')
-                    <div class="pt-1 mt-1 text-xs text-center text-gray-700 border-t border-gray-300"> 
-                        ©2020 Yannick GOUEDE. All rights reserved.
-                    </div>
-              </footer>
+             <footer class="px-4 py-1 font-sans bg-white">                
+                    @yield('footer')
+                        <div class="pt-1 mt-1 text-xs text-center text-gray-700 border-t border-gray-300"> 
+                            ©2020 Yannick GOUEDE. All rights reserved.
+                        </div>
+             </footer>
 
-
-            
         </div>
 
         @stack('modals')
