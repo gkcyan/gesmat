@@ -154,7 +154,7 @@ class EntreprisesExport implements FromQuery, WithColumnFormatting,WithHeadings 
     /**requete de selection des données à afficher */
     public function query()
     {
-        return Entreprise::query()->whereYear('created_at', $this->year);
+        return Entreprise::query();
     }
 
     /**titre des colonnes à affaicher */

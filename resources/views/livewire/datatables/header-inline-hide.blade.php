@@ -1,7 +1,7 @@
 <div wire:click.prefetch="toggle('{{ $index }}')"
     class="@if($column['hidden']) relative table-cell h-12 w-3 bg-blue-100 hover:bg-blue-300 overflow-none align-top group @else hidden @endif"
     style="min-width:12px; max-width:12px">
-    <button class="relative w-3 h-12 focus:outline-none">
+    <button class="relative w-3 h-4 focus:outline-none">
         <span
             class="absolute top-0 left-0 z-10 hidden w-32 ml-3 text-xs font-medium leading-4 tracking-wider text-left text-blue-700 uppercase transform bg-blue-300 group-hover:inline-block focus:outline-none">
             {{ str_replace('_', ' ', $column['label']) }}

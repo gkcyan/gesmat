@@ -1,6 +1,3 @@
-
-
-
 @if(request()->routeIs('dashboard'))
 
     <h2 class="text-xl font-bold leading-tight text-gray-900 "> Dashbord

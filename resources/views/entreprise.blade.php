@@ -8,7 +8,7 @@
     <div class="py-1">
         <div class="py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="">
-                @livewire('societe')
+                @livewire('entreprise-table')
             </div>
         </div>
     </div>

@@ -71,7 +71,7 @@ class Societe extends Component
     public function store()
     {
         $this->validate([
-            'denomination' => 'required',
+            'denomination' => 'required|unique:entreprises',
             'rcm' => 'required',
             'ncc' => 'required',
             'adresse' => 'required',
@@ -98,6 +98,7 @@ class Societe extends Component
   
         $this->closeModal();
         $this->resetInputFields();
+       
     }
     /**
      * The attributes that are mass assignable.
