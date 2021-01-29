@@ -13,12 +13,16 @@ use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\DateColumn;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+use PDF;
+
+//use Barryvdh\DomPDF\PDF;
 
 class EntrepriseTable extends LivewireDatatable
 {
 
     public $FrmCreateEntreprise; //Create form variable
     public $FrmEditEntreprise; //Edit form variable
+    public $FrmImpPageEntreprise; //imprime page form 
     public $FrmConsultEntreprise; //Read form variable
     public $hideable = 'select';
     public $exportable = true;
@@ -170,6 +174,14 @@ class EntrepriseTable extends LivewireDatatable
         $this->openModal();
     }
 
+    /**delete function */
+    public function delete($id)
+    {
+        //$this->openModal();
+        Entreprise::find($id)->delete();
+        session()->flash('message', 'Entreprise Supprimée avec succès.');
+    }
+
     /**PDF print  */
     public function print()
     {
@@ -177,5 +189,36 @@ class EntrepriseTable extends LivewireDatatable
         //return Excel::download(new EntreprisesExport, 'entreprises.pdf');
         return (new EntreprisesExport)->forYear(2020)->download('entreprises.pdf');
     }
+
+    public function printPage($id)
+    {
+        //$this->FrmImpPageEntreprise=true;
+        $entreprise = Entreprise::findOrFail($id);
+        $data = [
+            'entreprise_id' => $entreprise->id,
+            'denomination'=>$entreprise->denomination,
+            'nom_commercial'=>$entreprise->nom_commercial,
+            'sigle'=>$entreprise->sigle,
+            'ncc'=>$entreprise->ncc,
+            'rcm'=>$entreprise->rcm,
+            'adresse'=>$entreprise->adresse,
+            'forme_juridique'=>$entreprise->forme_juridique,
+            'capital'=>$entreprise->capital,
+            'image'=>$entreprise->image,
+            'actif'=>$entreprise->actif
+            //'title' => 'Welcome to ItSolutionStuff.com',
+            //'date' => date('m/d/Y')
+        ];
+       $pdf = PDF::loadView('livewire.FrmImpPageEntreprise', $data);
+        return $pdf->stream('itsolutionstuff.pdf');
+
+
+    }
+
+   /* public function render()
+    {
+        $this->entreprises=Entreprise::all();
+        return view('livewire.societe');
+    }*/
 
 }

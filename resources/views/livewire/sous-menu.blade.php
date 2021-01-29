@@ -24,7 +24,7 @@
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('entreprise')">
-                    {{ __('TAF Manager') }}
+                    {{ __('To Do List') }}
                 </x-jet-nav-link>
             </div>
          
@@ -241,40 +241,40 @@
                 </x-jet-nav-link>
             </div>
         
-            @elseif(request()->routeIs(['parametrage','entreprise']))
+        @elseif(request()->routeIs(['parametrage','entreprise','site','direction','service','pbascule','gencadrement','plantation']))
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('entreprise') }}" :active="request()->routeIs('entreprise')">
                     {{ __('Entreprise') }}
                 </x-jet-nav-link>
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('entreprise') }}" :active="request()->routeIs('contact')">
+                <x-jet-nav-link href="{{ route('site') }}" :active="request()->routeIs('site')">
                     {{ __('Site') }}
                 </x-jet-nav-link>
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('entreprise') }}" :active="request()->routeIs('contact')">
+                <x-jet-nav-link href="{{ route('direction') }}" :active="request()->routeIs('direction')">
                     {{ __('Direction') }}
                 </x-jet-nav-link>
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('entreprise') }}" :active="request()->routeIs('contact')">
+                <x-jet-nav-link href="{{ route('service') }}" :active="request()->routeIs('service')">
                     {{ __('Service') }}
                 </x-jet-nav-link>
             </div>
            
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('entreprise') }}" :active="request()->routeIs('contact')">
+                <x-jet-nav-link href="{{ route('pbascule') }}" :active="request()->routeIs('pbascule')">
                     {{ __('Pont Bascule') }}
                 </x-jet-nav-link>
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('entreprise') }}" :active="request()->routeIs('contact')">
+                <x-jet-nav-link href="{{ route('gencadrement') }}" :active="request()->routeIs('gencadrement')">
                     {{ __('Grp. Encadrement') }}
                 </x-jet-nav-link>
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('entreprise') }}" :active="request()->routeIs('contact')">
+                <x-jet-nav-link href="{{route('plantation')}}" :active="request()->routeIs('plantation')">
                     {{ __('Plantation') }}
                 </x-jet-nav-link>
             </div>

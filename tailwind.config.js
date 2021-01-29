@@ -9,6 +9,11 @@ module.exports = {
 
     theme: {
         extend: {
+            screens: {
+                'print': {'raw': 'print'},
+                // => @media print { ... }
+              },
+              
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },

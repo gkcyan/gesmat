@@ -9,11 +9,20 @@
             <form>
                
                     <div class="px-4 py-5 bg-gray-300 sm:px-6">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">
-                          Consultation
-                        </h3>
-                        <span class="max-w-2xl mt-1 text-sm text-gray-900">
-                          Details sur {{ $this->denomination }}
+                        <h4 class="text-lg font-medium leading-6 text-center text-gray-900">
+                          <strong>AFFICHAGE DETAIL ENTREPRISE</strong>
+                        </h4>
+                        <div class="hidden sm:block">
+                          <div class="py-2">
+                              <div class="border-t border-gray-200"></div>
+                          </div>
+                      </div>
+                        <span class="max-w-2xl mt-1 text-sm text-gray-900"> 
+                          Details sur : <strong style="text-transform: uppercase">{{ $this->denomination }}</strong> <br/>
+                          Editer le: {{ date('m/d/Y H:m:s')}} <br/>
+                          par : {{  Auth::user()->name }} <br/>
+                          Extrait de: {{ config('app.name', 'Laravel') }} 
+                          {{-- Route::currentRouteName() --}}
                         </span>
                       </div>
                 
@@ -159,9 +168,12 @@
                 
                 <div class="px-4 py-3 bg-gray-400 sm:px-6 sm:flex sm:flex-row-reverse">
                     <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                        <button wire:click.prevent="print()" type="button" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-500 focus:outline-none focus:border-gray-900 focus:shadow-outline-green sm:text-sm sm:leading-5">
+                      <a href="{{ route('generate-pdf', $this->entreprise_id) }}">
+                        <button  type="button" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-500 focus:outline-none focus:border-gray-900 focus:shadow-outline-green sm:text-sm sm:leading-5">
                         Imprimer
                         </button>
+                      </a>
+                      
                     </span>
                     <span class="flex w-full mt-3 rounded-md shadow-sm sm:mt-0 sm:w-auto">
                         <button wire:click="closeModal()" type="button" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue sm:text-sm sm:leading-5">

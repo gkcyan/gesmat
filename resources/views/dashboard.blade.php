@@ -1,11 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        
-        
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">
                     {{ __('Dashboard') }}
                 </h2>
-            
     </x-slot>
     <!--x-jet-page-title/-->
         
@@ -26,7 +23,7 @@
                
                 <!--x-jet-facture-generate/-->
                 
-                <x-jet-table/>
+                <!--x-jet-table/-->
                 
             </div>
         </div>

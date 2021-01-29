@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Entreprises;
 use App\Http\Controllers\Pdfcontroller;
+use App\Http\Controllers\Tablecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,9 +78,38 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('entreprise', function () {
         return view('entreprise');
     })->name('entreprise');
+
+    Route::get('site', function () {
+        return view('livewire.sites');
+    })->name('site');
+
+    
+    Route::get('direction', function () {
+        return view('livewire.direction.directions');
+    })->name('direction');
+
+    Route::get('service', function () {
+        return view('livewire.services.service');
+    })->name('service');
+
+    Route::get('pbascule', function () {
+        return view('livewire.pbascules.pbascule');
+    })->name('pbascule');
+
+    Route::get('gencadrement', function () {
+        return view('livewire.gencadrements.gencardement');
+    })->name('gencadrement');
+
+    Route::get('plantation', function () {
+        return view('livewire.plantations.index');
+    })->name('plantation');
+
+
+    Route::get('generate-pdf/{id}', [PDFController::class, 'generatePDF'])->name('generate-pdf');
+    Route::get('tablePDF', [PDFController::class, 'tablePDF'])->name('tablePDF');
 });
 
 
 
-//Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
+
 //Route::get('entreprise',Entreprises::class);
