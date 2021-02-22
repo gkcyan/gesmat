@@ -73,7 +73,7 @@ class DirectionsTable extends LivewireDatatable
             //NumberColumn::name('id')->filterable(),//->linkTo('denomination'),
             Column::name('libelle')->label('Direction')->filterable()->searchable(),
             Column::name('description')->filterable()->searchable()->editable(),
-            Column::name('email')->label('Responsable')->filterable(),
+            Column::name('email')->label('Email')->filterable(),
             Column::name('entreprises.nom_commercial')->label('Entreprise')->filterable()->searchable(),
            //Column::name('Sites.libelle')->label('Site')->filterable()->searchable(),
  

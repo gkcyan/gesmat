@@ -17,6 +17,10 @@
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
+
+        <!-- add kutty dropdow component -->
+        <script src="https://cdn.jsdelivr.net/npm/kutty@latest/dist/dropdown.min.js"></script>
+        
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-blue-100">
@@ -26,7 +30,7 @@
             <!-- Page Heading -->
             <header class="bg-white shadow">
                 <div class="px-4 py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    {{ $header }}
+                    {{ $header ?? ' '}}
                 </div>
             </header>
 

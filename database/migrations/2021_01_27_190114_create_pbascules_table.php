@@ -19,10 +19,14 @@ class CreatePbasculesTable extends Migration
             $table->text('description')->nullable();
             $table->text('localisation')->nullable();
             $table->string('email', 45);
+            $table->string('exploitant');
+            $table->string('contact');
+            $table->string('type');
             $table->foreignId('entreprise_id')->constrained('entreprises');
             $table->foreignId('site_id')->constrained('sites');
             $table->foreignId('direction_id')->constrained('directions');
             $table->foreignId('service_id')->constrained('services');
+            $table->foreignId('zone_id')->constrained('zones');
             $table->timestamps();
             $table->softDeletes();
         });

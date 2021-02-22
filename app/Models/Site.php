@@ -15,6 +15,7 @@ class Site extends Model
         'libelle',
         'description',
         'entreprise_id',
+        'siege',
     ];
 
     public function entreprise()

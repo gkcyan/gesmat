@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Direction;
 use App\Models\Site;
 use App\Models\Entreprise;
+use App\Models\Zone;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\DateColumn;
@@ -23,12 +24,13 @@ class PbasculeTable extends LivewireDatatable
     public $hideable = 'select';
     public $exportable = true;
     //public $afterTableSlot = 'components.selected';
-    public $libelle, $description, $email, $localisation, $entreprise_id, $site_id, $direction_id, $service_id, $pbascule_id;
+    public $libelle, $description, $email, $localisation, $entreprise_id, $site_id, $direction_id, $service_id, $pbascule_id, $zone_id, $exploitant, $contact, $type;
     public $isOpen = 0;
     public $ListeEntreprises;
     public $ListeSites;
     public $ListeDirections;
     public $ListeServices;
+    public $ListeZones;
 
 
 
@@ -90,6 +92,7 @@ class PbasculeTable extends LivewireDatatable
         $this->ListeSites=Site::orderBy('libelle')->get();
         $this->ListeDirections=Direction::orderBy('libelle')->get();
         $this->ListeServices=Service::orderBy('libelle')->get();
+        $this->ListeZones=Zone::orderBy('libelle')->get();
         $this->resetInputFields();
         $this->openModal();  
     }
@@ -108,6 +111,10 @@ class PbasculeTable extends LivewireDatatable
         $this->site_id=Site::find($pbascule->site_id)->libelle;
         $this->direction_id=Direction::find($pbascule->direction_id)->libelle;
         $this->service_id=Service::find($pbascule->service_id)->libelle;
+        $this->zone_id=Zone::find($pbascule->zone_id)->libelle;
+        $this->exploitant=$pbascule->exploitant;
+        $this->contact=$pbascule->contact;
+        $this->type=$pbascule->type;
         $this->openModal();
     }
 
@@ -123,6 +130,10 @@ class PbasculeTable extends LivewireDatatable
         $this->entreprise_id='';
         $this->direction_id='';
         $this->service_id='';
+        $this->zone_id='';
+        $this->exploitant='';
+        $this->contact='';
+        $this->type='';
         
     }
      
@@ -146,7 +157,11 @@ class PbasculeTable extends LivewireDatatable
             'site_id'=> $this->site_id,
             'direction_id'=> $this->direction_id,
             'service_id'=> $this->service_id,
-            'pbascule_id'=> $this->pbascule_id
+            'pbascule_id'=> $this->pbascule_id,
+            'zone_id'=> $this->zone_id,
+            'exploitant'=>$this->exploitant,
+            'contact'=>$this->contact,
+            'type'=>$this->type,
 
         ]);
   
@@ -174,6 +189,10 @@ class PbasculeTable extends LivewireDatatable
         $this->direction_id=$pbascule->direction_id;
         $this->site_id=$pbascule->site_id;
         $this->service_id=$pbascule->service_id;
+        $this->zone_id=$pbascule->zone_id;
+        $this->exploitant=$pbascule->exploitant;
+        $this->contact=$pbascule->contact;
+        $this->type=$pbascule->type;
         $this->openModal();
     }
 

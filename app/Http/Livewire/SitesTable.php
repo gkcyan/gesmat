@@ -18,7 +18,7 @@ class SitesTable extends LivewireDatatable
     public $hideable = 'select';
     public $exportable = true;
     //public $afterTableSlot = 'components.selected';
-    public $libelle, $description,$entreprise_id,$site_id;
+    public $libelle, $description,$entreprise_id,$site_id,$siege;
     public $isOpen = 0;
     public $ListeEntreprises;
 
@@ -59,7 +59,7 @@ class SitesTable extends LivewireDatatable
             Column::name('libelle')->label('Site')->filterable()->searchable(),
             Column::name('description')->filterable()->searchable()->editable(),
             Column::name('entreprises.nom_commercial')->label('Entreprise')->filterable()->searchable(),
-            DateColumn::name('created_at')->label('Enregistrée le')->filterable(),
+            Column::name('siege')->label('Type')->filterable(),
             //Column::delete()->label('delete')->alignRight(),
             Column::callback(['id', 'libelle'], function ($id, $libelle) {
                 return view('table-action', ['id' => $id, 'libelle' => $libelle]);
@@ -85,6 +85,7 @@ class SitesTable extends LivewireDatatable
         $this->id = $id;
         $this->libelle=$site->libelle;
         $this->description=$site->description;
+        $this->siege=$site->siege;
         $this->entreprise_id=Entreprise::find($site->entreprise_id)->denomination;
         //dd($id);
         $this->openModal();
@@ -99,6 +100,7 @@ class SitesTable extends LivewireDatatable
         $this->libelle='';
         $this->description='';
         $this->entreprise_id='';
+        $this->siege='';
         
     }
      
@@ -114,6 +116,7 @@ class SitesTable extends LivewireDatatable
             
             'libelle' => $this->libelle,
             'description'=> $this->description,
+            'siege'=> $this->siege,
             'entreprise_id'=> $this->entreprise_id,
             'site_id'=> $this->site_id
         ]);
@@ -135,6 +138,7 @@ class SitesTable extends LivewireDatatable
         $this->site_id = $id;
         $this->libelle=$site->libelle;
         $this->description=$site->description;
+        $this->siege=$site->siege;
         $this->entreprise_id=$site->entreprise_id;
         $this->openModal();
     }

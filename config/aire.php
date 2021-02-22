@@ -72,7 +72,7 @@ return [
 	|--------------------------------------------------------------------------
 	|
 	| If you would like to configure default attributes for certain elements,
-	| you can do so here (for example, setting a <form>'s method to 'GET' by
+	| you can do so here (for example, setting a <form> @csrf's method to 'GET' by
 	| default).
 	|
 	*/

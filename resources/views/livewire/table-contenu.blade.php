@@ -65,6 +65,83 @@
             @include('livewire.plantations.Read')
          @elseif($FrmImpPagePlantation)
             @include('livewire.plantations.ImpPage')
+
+
+            @elseif($FrmCreateZone)
+            @include('livewire.zones.create')
+         @elseif($FrmEditZone)
+            @include('livewire.zones.Edit')
+         @elseif($FrmConsultZone)
+            @include('livewire.zones.Read')
+         @elseif($FrmImpPageZone)
+            @include('livewire.zones.ImpPage')
+
+
+            @elseif($FrmCreateMatMarque)
+            @include('livewire.mat-marque.create')
+         @elseif($FrmEditMatMarque)
+            @include('livewire.mat-marque.Edit')
+         @elseif($FrmConsultMatMarque)
+            @include('livewire.mat-marque.Read')
+         @elseif($FrmImpPageMatMarque)
+            @include('livewire.mat-marque.ImpPage')
+
+            @elseif($FrmCreate)
+            @include('livewire.mat-type.create')
+         @elseif($FrmEdit)
+            @include('livewire.mat-type.Edit')
+         @elseif($FrmConsult)
+            @include('livewire.mat-type.Read')
+         @elseif($FrmImpPage)
+            @include('livewire.mat-type.ImpPage')
+
+            @elseif($FrmCreateMaterielModele)
+            @include('livewire.mat-modele.create')
+         @elseif($FrmEditMaterielModele)
+            @include('livewire.mat-modele.Edit')
+         @elseif($FrmConsultMaterielModele)
+            @include('livewire.mat-modele.Read')
+         @elseif($FrmImpPageMaterielModele)
+            @include('livewire.mat-modele.ImpPage')
+
+            @elseif($FrmCreateMatCategorie)
+            @include('livewire.mat-categorie.create')
+         @elseif($FrmEditMatCategorie)
+            @include('livewire.mat-categorie.Edit')
+         @elseif($FrmConsultMatCategorie)
+            @include('livewire.mat-categorie.Read')
+         @elseif($FrmImpPageMatCategorie)
+            @include('livewire.mat-categorie.ImpPage')
+
+            @elseif($FrmCreateCarbCategorie)
+            @include('livewire.carb-categorie.create')
+         @elseif($FrmEditCarbCategorie)
+            @include('livewire.carb-categorie.Edit')
+         @elseif($FrmConsultCarbCategorie)
+            @include('livewire.carb-categorie.Read')
+         @elseif($FrmImpPageCarbCategorie)
+            @include('livewire.carb-categorie.ImpPage')
+
+            @elseif($FrmCreateCarbProduit)
+            @include('livewire.carb-Produit.create')
+         @elseif($FrmEditCarbProduit)
+            @include('livewire.carb-Produit.Edit')
+         @elseif($FrmConsultCarbProduit)
+            @include('livewire.carb-Produit.Read')
+         @elseif($FrmImpPageCarbProduit)
+            @include('livewire.carb-Produit.ImpPage')
+           
+         
+            @elseif($FrmCreateMaterielMatricule)
+            @include('livewire.mat-matricule.create')
+         @elseif($FrmEditMaterielMatricule)
+            @include('livewire.mat-matricule.Edit')
+         @elseif($FrmConsultMaterielMatricule)
+            @include('livewire.mat-matricule.Read')
+         @elseif($FrmImpPageMaterielMatricule)
+            @include('livewire.mat-matricule.ImpPage')
+
+           
             
             
             

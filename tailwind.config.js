@@ -9,6 +9,14 @@ module.exports = {
 
     theme: {
         extend: {
+
+            colors: {
+                primary: {
+                  light: "#fefcbf", // For lighter primary color
+                  DEFAULT: "#b7791f", // Normal primary color
+                  dark: "#744210", // Used for hover, active, etc.
+                        },
+                    },
             screens: {
                 'print': {'raw': 'print'},
                 // => @media print { ... }
@@ -24,5 +32,5 @@ module.exports = {
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
     },
 
-    plugins: [require('@tailwindcss/ui')],
+    plugins: [require('@tailwindcss/ui','kutty')],
 };

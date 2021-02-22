@@ -29,12 +29,12 @@
             </div>
          
         
-    @elseif(request()->routeIs('parc'))
+    @elseif(request()->routeIs(['parc','mat_marque','materiel','mat_modele','mat_type','mat_categorie']))
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-nav-link href="{{ route('materiel') }}" :active="request()->routeIs(['mat_marque','materiel','mat_modele','mat_type','mat_categorie'])">
                     {{ __('Materiel') }}
                 </x-jet-nav-link>
-            </div>
+            </div>      
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                     {{ __('Conducteur') }}
@@ -62,15 +62,30 @@
             </div>
 
         @elseif(request()->routeIs('maintenance'))
+
+
+       
+
+
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-nav-link  href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Disponibilité') }}
                 </x-jet-nav-link>
             </div>
-            <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+
+           
+            <div x-data="dropdown()" class="space-x-2 sm:-my-px sm:ml-10 sm:flex" >
+                <x-jet-nav-link id="open-color-menu" x-spread="trigger" :active="request()->routeIs('dashboard')" >
                     {{ __('Avarie') }}
+                    <svg class="dropdown-arrow" :class="{ 'rotate-180': open }" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>      
                 </x-jet-nav-link>
+                <div class="dropdown-list" id="color-menu" x-spread="dropdown" x-cloak>
+                                    
+                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dropdown-item dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #1</a>
+                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dropdown-item dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #2</a>
+                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dropdown-item dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #3</a>
+               
+                </div>
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -219,12 +234,13 @@
                     {{ __("Réclamation") }}
                 </x-jet-nav-link>
             </div>
-         @elseif(request()->routeIs('consommable'))
+         @elseif(request()->routeIs(['consommable','carburant','carb_categorie','carb_tarif','carb_produit','carb_petrolier']))
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-nav-link href="{{ route('carburant') }}" :active="request()->routeIs(['consommable','carburant','carb_categorie','carb_tarif','carb_produit','carb_petrolier'])">
                     {{ __('Carburant') }}
                 </x-jet-nav-link>
             </div>
+
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                     {{ __('Lubrifiant') }}
@@ -241,7 +257,7 @@
                 </x-jet-nav-link>
             </div>
         
-        @elseif(request()->routeIs(['parametrage','entreprise','site','direction','service','pbascule','gencadrement','plantation']))
+        @elseif(request()->routeIs(['parametrage','entreprise','site','direction','service','pbascule','gencadrement','plantation','zone']))
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('entreprise') }}" :active="request()->routeIs('entreprise')">
                     {{ __('Entreprise') }}
@@ -262,6 +278,11 @@
                     {{ __('Service') }}
                 </x-jet-nav-link>
             </div>
+            <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
+                <x-jet-nav-link href="{{route('zone')}}" :active="request()->routeIs('zone')">
+                    {{ __('Zone') }}
+                </x-jet-nav-link>
+            </div>
            
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('pbascule') }}" :active="request()->routeIs('pbascule')">
@@ -278,6 +299,7 @@
                     {{ __('Plantation') }}
                 </x-jet-nav-link>
             </div>
+           
         @elseif(request()->routeIs('appli'))
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">

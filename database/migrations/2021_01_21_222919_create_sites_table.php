@@ -17,7 +17,8 @@ class CreateSitesTable extends Migration
             $table->id();
             $table->string('libelle', 45)->unique();
             $table->text('description')->nullable();
-            $table->foreignId('entreprise_id')->constrained('entreprises')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('siege')->nullable();
+            $table->foreignId('entreprise_id')->constrained('entreprises')->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Plantations;
 
 
 use App\Models\Gencadrement;
+use App\Models\Zone;
 use App\Models\Service;
 use App\Models\Direction;
 use App\Models\Site;
@@ -22,13 +23,14 @@ class PlantationTable extends LivewireDatatable
     public $hideable = 'select';
     public $exportable = true;
     //public $afterTableSlot = 'components.selected';
-    public $libelle, $description, $email,$superficie,$exploitant,$contact, $localisation, $entreprise_id, $site_id, $direction_id, $service_id, $ge_id, $plantation_id;
+    public $libelle, $description, $email,$superficie,$exploitant,$contact, $localisation, $entreprise_id, $site_id, $direction_id, $service_id, $ge_id, $plantation_id,$zone_id,$type;
     public $isOpen = 0;
     public $ListeEntreprises;
     public $ListeSites;
     public $ListeDirections;
     public $ListeServices;
     public $ListeGes;
+    public $ListeZones;
 
 
 
@@ -72,7 +74,7 @@ class PlantationTable extends LivewireDatatable
             //Column::name('description')->filterable()->searchable()->editable(),
             Column::name('exploitant')->label('Proprietaire')->filterable(),
             Column::name('contact')->label('Contact')->filterable(),
-            Column::name('localisation')->label('Localisation')->filterable(),
+            Column::name('zone.libelle')->label('Localisation')->filterable(),
             Column::name('gencadrements.libelle')->label('Grp. Encadrement')->filterable()->searchable(),
            //Column::name('Sites.libelle')->label('Site')->filterable()->searchable(),
  
@@ -93,6 +95,7 @@ class PlantationTable extends LivewireDatatable
         $this->ListeDirections=Direction::orderBy('libelle')->get();
         $this->ListeServices=Service::orderBy('libelle')->get();
         $this->ListeGes=Gencadrement::orderBy('libelle')->get();
+        $this->ListeZones=Zone::orderBy('libelle')->get();
         $this->resetInputFields();
         $this->openModal();  
     }
@@ -112,9 +115,11 @@ class PlantationTable extends LivewireDatatable
         $this->direction_id=Direction::find($plantation->direction_id)->libelle;
         $this->service_id=Service::find($plantation->service_id)->libelle;
         $this->ge_id=Gencadrement::find($plantation->ge_id)->libelle;
+        $this->zone_id=Zone::find($plantation->zone_id)->libelle;
         $this->superficie=$plantation->superficie;
         $this->exploitant=$plantation->exploitant;
         $this->contact=$plantation->contact;
+        $this->type=$plantation->type;
         $this->openModal();
     }
 
@@ -134,6 +139,8 @@ class PlantationTable extends LivewireDatatable
         $this->superficie='';
         $this->exploitant='';
         $this->contact='';
+        $this->zone_id='';
+        $this->type='';
         
     }
      
@@ -162,6 +169,8 @@ class PlantationTable extends LivewireDatatable
             'exploitant'=>$this->exploitant,
             'contact'=>$this->contact,
             'plantation_id'=> $this->plantation_id,
+            'zone_id'=> $this->zone_id,
+            'type'=> $this->type,
 
         ]);
   
@@ -179,6 +188,7 @@ class PlantationTable extends LivewireDatatable
         $this->ListeEntreprises=Entreprise::orderBy('denomination')->get();
         $this->ListeSites=Site::orderBy('libelle')->get();
         $this->ListeDirections=Direction::orderBy('libelle')->get();
+        $this->ListeZones=Zone::orderBy('libelle')->get();
         $plantation = Plantation::findOrFail($id);
         $this->plantation_id = $id;
         $this->libelle=$plantation->libelle;
@@ -193,6 +203,8 @@ class PlantationTable extends LivewireDatatable
         $this->superficie=$plantation->superficie;
         $this->exploitant=$plantation->exploitant;
         $this->contact=$plantation->contact;
+        $this->zone_id=$plantation->zone_id;
+        $this->type=$plantation->type;
         $this->openModal();
     }
 

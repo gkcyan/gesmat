@@ -23,7 +23,10 @@ class Plantation extends Model
         'site_id',
         'direction_id',
         'service_id',
-        'ge_id'
+        'ge_id',
+        'zone_id',
+        'type'
+        
     ];
 
     public function entreprise()
@@ -49,5 +52,9 @@ class Plantation extends Model
     public function Gencadrement()
     {
         return $this->belongsTo(Gencadrement::class);
+    }
+    public function Zone()
+    {
+        return $this->belongsTo(Zone::class);
     }
 }

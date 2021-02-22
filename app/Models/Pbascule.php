@@ -19,7 +19,12 @@ class Pbascule extends Model
         'entreprise_id',
         'site_id',
         'direction_id',
-        'service_id'
+        'service_id',
+        'zone_id',
+        'exploitant',
+        'contact',
+        'type',
+        
     ];
 
     public function entreprises()

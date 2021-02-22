@@ -18,8 +18,8 @@ class CreateDirectionTable extends Migration
             $table->string('libelle', 45);
             $table->text('description')->nullable();
             $table->string('email', 45);
-            $table->foreignId('entreprise_id')->constrained('entreprises')->onUpdate('cascade');
-            $table->foreignId('site_id')->constrained('sites')->onUpdate('cascade');
+            $table->foreignId('entreprise_id')->constrained('entreprises');
+            $table->foreignId('site_id')->constrained('sites');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +32,6 @@ class CreateDirectionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('direction');
+        Schema::dropIfExists('directions');
     }
 }

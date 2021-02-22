@@ -19,19 +19,26 @@ class Gencadrement extends Model
         'entreprise_id',
         'site_id',
         'direction_id',
-        'service_id'
+        'service_id',
+        'zone_id',
+        'encadreur',
+        'contact',
     ];
 
     public function entreprise()
     {
         return $this->belongsTo(Entreprise::class);
     }
-    
     public function site()
     {
         return $this->belongsTo(Site::class);
     }
 
+    public function zones()
+    {
+        return $this->hasMany(zone::class);
+    }
+      
     public function direction()
     {
         return $this->belongsTo(Direction::class);

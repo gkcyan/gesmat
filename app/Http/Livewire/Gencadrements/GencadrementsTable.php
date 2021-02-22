@@ -23,7 +23,7 @@ class GencadrementsTable extends LivewireDatatable
     public $hideable = 'select';
     public $exportable = true;
     //public $afterTableSlot = 'components.selected';
-    public $libelle, $description, $email, $localisation, $entreprise_id, $site_id, $direction_id, $service_id, $gencadrement_id;
+    public $libelle, $description, $email, $localisation, $entreprise_id, $site_id,$direction_id, $service_id, $gencadrement_id, $encadreur, $contact;
     public $isOpen = 0;
     public $ListeEntreprises;
     public $ListeSites;
@@ -105,6 +105,8 @@ class GencadrementsTable extends LivewireDatatable
         $this->description=$gencadrement->description;
         $this->email=$gencadrement->email;
         $this->localisation=$gencadrement->localisation;
+        $this->encadreur=$gencadrement->encadreur;
+        $this->contact=$gencadrement->contact;
         $this->entreprise_id=Entreprise::find($gencadrement->entreprise_id)->denomination;
         $this->site_id=Site::find($gencadrement->site_id)->libelle;
         $this->direction_id=Direction::find($gencadrement->direction_id)->libelle;
@@ -124,6 +126,8 @@ class GencadrementsTable extends LivewireDatatable
         $this->entreprise_id='';
         $this->direction_id='';
         $this->service_id='';
+        $this->encadreur='';
+        $this->contact='';
         
     }
      
@@ -147,7 +151,9 @@ class GencadrementsTable extends LivewireDatatable
             'site_id'=> $this->site_id,
             'direction_id'=> $this->direction_id,
             'service_id'=> $this->service_id,
-            'gencadrement_id'=> $this->gencadrement_id
+            'gencadrement_id'=> $this->gencadrement_id,
+            'encadreur'=>$this->encadreur,
+            'contact'=>$this->contact,
 
         ]);
   
@@ -175,6 +181,8 @@ class GencadrementsTable extends LivewireDatatable
         $this->direction_id=$gencadrement->direction_id;
         $this->site_id=$gencadrement->site_id;
         $this->service_id=$gencadrement->service_id;
+        $this->encadreur=$gencadrement->encadreur;
+        $this->contact=$gencadrement->contact;
         $this->openModal();
     }
 
