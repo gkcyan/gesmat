@@ -16,6 +16,8 @@
                     @livewire('materiel.select-materiel',['nbre','mat'])
 
                     <div class="py-2 border-t border-gray-300"></div>
+                    {{-- @livewire('materiel.graph-materiel') 
+                    <div class="py-2 border-t border-gray-300"></div>--}}
 
                     @livewire('mat-matricule.matricule-table')
                 </div>

@@ -202,7 +202,7 @@
                     <input type="text" id="exampleFormControlInput15" wire:model="usage"
                         placeholder="{{ __('Usage') }}"
                         class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                        required>
+                        required >
                     @error('usage') <span class="text-red-500">{{ $message }}</span>@enderror
                 </dd>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">

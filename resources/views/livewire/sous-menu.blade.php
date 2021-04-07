@@ -29,20 +29,25 @@
             </div>
          
         
-    @elseif(request()->routeIs(['parc','mat_marque','materiel','mat_modele','mat_type','mat_categorie']))
+    @elseif(request()->routeIs(['parc','mat_marque','materiel','mat_modele','mat_type','mat_categorie','conducteur','conduct_categorie']))
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('materiel') }}" :active="request()->routeIs(['mat_marque','materiel','mat_modele','mat_type','mat_categorie'])">
                     {{ __('Materiel') }}
                 </x-jet-nav-link>
             </div>      
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
-                <x-jet-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                <x-jet-nav-link href="{{ route('conducteur') }}" :active="request()->routeIs(['conducteur','conduct_categorie'])">
                     {{ __('Conducteur') }}
                 </x-jet-nav-link>
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                     {{ __('Chargeur') }}
+                </x-jet-nav-link>
+            </div>
+            <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
+                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Dimensionnement') }}
                 </x-jet-nav-link>
             </div>
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
@@ -124,6 +129,7 @@
             </div>
 
         @elseif(request()->routeIs('logistique'))
+        
             <div class="space-x-2 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Prévision') }}

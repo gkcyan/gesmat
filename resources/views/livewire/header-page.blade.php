@@ -49,6 +49,14 @@
     <h2 class="text-xl font-bold leading-tight text-gray-900 "> Tarification
         <span class="text-xs font-thin text-indigo-800"> Interface de Gestion des couts des Produits Pétroliers</span>                  
     </h2>
+    @elseif(request()->routeIs('conducteur'))
+    <h2 class="text-xl font-bold leading-tight text-gray-900 "> Conducteur
+        <span class="text-xs font-thin text-indigo-800"> Interface de Gestion des Conducteurs</span>                  
+    </h2>
+    @elseif(request()->routeIs('conduct_categorie'))
+    <h2 class="text-xl font-bold leading-tight text-gray-900 "> Catégorie
+        <span class="text-xs font-thin text-indigo-800"> Interface de Gestion des Catégories de Conducteur</span>                  
+    </h2>
 @else
 
     <h2 class="text-xl font-bold leading-tight text-gray-900 "> 

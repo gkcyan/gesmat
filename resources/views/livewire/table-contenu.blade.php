@@ -141,6 +141,25 @@
          @elseif($FrmImpPageMaterielMatricule)
             @include('livewire.mat-matricule.ImpPage')
 
+
+            @elseif($FrmCreateConducteurCategorie)
+            @include('livewire.conduct-categorie.create')
+         @elseif($FrmEditConducteurCategorie)
+            @include('livewire.conduct-categorie.Edit')
+         @elseif($FrmConsultConducteurCategorie)
+            @include('livewire.conduct-categorie.Read')
+         @elseif($FrmImpPageConducteurCategorie)
+            @include('livewire.conduct-categorie.ImpPage')
+            
+
+            @elseif($FrmCreateConducteur)
+            @include('livewire.conducteur.create')
+         @elseif($FrmEditConducteur)
+            @include('livewire.conducteur.Edit')
+         @elseif($FrmConsultConducteur)
+            @include('livewire.conducteur.Read')
+         @elseif($FrmImpPageConducteur)
+            @include('livewire.conducteur.ImpPage')
            
             
             

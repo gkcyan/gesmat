@@ -46,6 +46,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('parc');
 
         Route::get('materiel', [MatriculeTable::class,'index'])->name('materiel');
+        Route::get('conduct_categorie', function () {return view('livewire.conduct-categorie.index');})->name('conduct_categorie');
+        Route::get('conducteur', function () {return view('livewire.conducteur.index');})->name('conducteur');
         
         Route::get('mat_marque', function () {
             return view('livewire.Mat-marque.index');

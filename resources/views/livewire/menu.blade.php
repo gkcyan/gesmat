@@ -3,7 +3,7 @@
     <x-jet-nav-link-main href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
         {{ __('Dashboard') }}
     </x-jet-nav-link-main>
-    <x-jet-nav-link-main href="{{ route('parc') }}" :active="request()->routeIs(['parc','mat_marque','materiel','mat_modele','mat_type','mat_categorie'])">
+    <x-jet-nav-link-main href="{{ route('parc') }}" :active="request()->routeIs(['parc','mat_marque','materiel','mat_modele','mat_type','mat_categorie','conduct_categorie'])">
         {{ __('Parc') }}
     </x-jet-nav-link-main>
     <x-jet-nav-link-main href="{{ route('maintenance') }}" :active="request()->routeIs('maintenance')">
